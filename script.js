@@ -81,3 +81,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+document.querySelectorAll('.read-more-btn').forEach(button => {
+    button.addEventListener('click', function () {
+        const moreText = this.previousElementSibling.querySelector('.more-text');
+        if (moreText.style.display === "inline") {
+            moreText.style.display = "none";
+            this.textContent = "Read More";
+        } else {
+            moreText.style.display = "inline";
+            this.textContent = "Read Less";
+        }
+    });
+});

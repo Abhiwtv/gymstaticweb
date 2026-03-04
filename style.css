@@ -116,31 +116,122 @@ a { text-decoration: none; color: inherit; }
 
 /* ===== STRICT SIDE-BY-SIDE MOBILE SCROLLING (Facilities & Coaches) ===== */
 .snap-x-scroll {
-    display: flex; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x mandatory;
-    gap: 20px; padding-bottom: 20px; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding: 0 16px 20px 16px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
 }
-.snap-x-scroll::-webkit-scrollbar { display: none; }
+.snap-x-scroll::-webkit-scrollbar {
+    display: none;
+}
 
+/* MOBILE FIRST */
 .scroll-card {
-    flex: 0 0 85%; scroll-snap-align: center; position: relative;
-    background: var(--dark-gray); border-radius: 12px; overflow: hidden;
-    border: 1px solid var(--border-glass); height: 380px; display: flex; flex-direction: column;
-}
-.card-image { width: 100%; height: 100%; object-fit: cover; }
-.scroll-card:has(.card-glass-content) .card-image { position: absolute; top: 0; left: 0; }
+    flex: 0 0 88%;
+    scroll-snap-align: center;
+    position: relative;
+    background: var(--dark-gray);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border-glass);
 
+    aspect-ratio: 902 / 927;   /* MATCH IMAGE */
+}
+
+/* Image fits perfectly */
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;   /* no crop */
+}
+
+/* Image fully fills card with no side gaps */
+
+/* Glass overlay */
 .card-glass-content {
-    position: absolute; bottom: 0; left: 0; width: 100%; padding: 25px;
-    background: linear-gradient(to top, rgba(5,5,5,1) 0%, rgba(5,5,5,0.4) 80%, transparent);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(
+        to top,
+        rgba(5,5,5,0.95) 0%,
+        rgba(5,5,5,0.5) 60%,
+        transparent 100%
+    );
 }
-.card-glass-content h3 { font-size: 1.5rem; color: var(--white); }
-.card-glass-content p { color: var(--primary-red); font-weight: 600; }
 
-.coach-media { height: 60%; width: 100%; overflow: hidden; }
-.coach-info { padding: 20px; height: 40%; }
-.coach-info h3 { font-size: 1.6rem; }
-.specialty { color: var(--primary-red); font-size: 1rem; margin-bottom: 5px; }
-.bio { color: var(--text-gray); font-size: 0.95rem; }
+.card-glass-content h3 {
+    font-size: 1.3rem;
+    color: var(--white);
+}
+
+.card-glass-content p {
+    color: var(--primary-red);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Coach Layout */
+.coach-media {
+    height: 60%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.coach-info {
+    padding: 18px;
+    height: 40%;
+}
+
+.coach-info h3 {
+    font-size: 1.4rem;
+}
+
+.specialty {
+    color: var(--primary-red);
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+}
+
+.bio {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    line-height: 1.4;
+}
+
+.more-text {
+    display: none;
+}
+
+.read-more-btn {
+    margin-top: 6px;
+    background: none;
+    border: none;
+    color: var(--primary-red);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    font-size: 0.85rem;
+}
+
+.achievements {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: var(--text-gray);
+}
+
+/* Slightly bigger cards on tablets */
+@media (min-width: 768px) {
+    .scroll-card {
+        flex: 0 0 60%;
+    }
+}
 
 /* ===== TIMETABLE TABS ===== */
 .timetable-tabs {
