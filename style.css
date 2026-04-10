@@ -371,3 +371,63 @@ a { text-decoration: none; color: inherit; }
         height: 24px;
     }
 }
+
+/* ===== FEE TABS ===== */
+.fees-tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* Allows stacking on very small screens if text is long */
+}
+.fee-tab-btn {
+    padding: 12px 25px;
+    background: var(--dark-gray);
+    color: var(--white);
+    border: 1px solid var(--border-glass);
+    border-radius: 30px;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.fee-tab-btn.active {
+    background: var(--primary-red);
+    border-color: var(--primary-red);
+    box-shadow: 0 4px 15px rgba(227, 24, 55, 0.4);
+}
+.fee-tab-panel {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+.fee-tab-panel.active {
+    display: block;
+}
+/* ===== COACHES MOBILE FIX ===== */
+/* 1. Remove the strict height limits on the coach cards */
+.coaches .scroll-card {
+    aspect-ratio: auto !important; 
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 2. Give the image a nice, consistent square shape */
+.coach-media {
+    height: auto !important;
+    aspect-ratio: 1 / 1; 
+    width: 100%;
+}
+
+/* 3. Make sure the image covers the area without stretching */
+.coach-media .card-image {
+    object-fit: cover;
+    object-position: top; /* Keeps their faces centered! */
+}
+
+/* 4. Let the text area expand as much as it needs to */
+.coach-info {
+    height: auto !important;
+    flex-grow: 1;
+    padding: 20px 18px;
+}

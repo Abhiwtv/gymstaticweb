@@ -98,3 +98,22 @@ document.querySelectorAll('.read-more-btn').forEach(button => {
         }
     });
 });
+
+// ===== FEES TABS LOGIC =====
+const feeTabBtns = document.querySelectorAll('.fee-tab-btn');
+const feeTabPanels = document.querySelectorAll('.fee-tab-panel');
+
+feeTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Remove active class from all fee tabs and panels
+        feeTabBtns.forEach(b => b.classList.remove('active'));
+        feeTabPanels.forEach(p => p.classList.remove('active'));
+        
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        // Show the corresponding panel
+        const targetPlan = btn.getAttribute('data-plan');
+        document.getElementById(targetPlan).classList.add('active');
+    });
+});
