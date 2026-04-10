@@ -65,15 +65,19 @@ if (slides.length > 0) {
 }
 
 // ===== SMOOTH SCROLLING FOR ANCHOR LINKS =====
+// Smooth scrolling update
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetElement = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href');
+        if(targetId === "#") return; // Ignore empty hashes
+
+        const targetElement = document.querySelector(targetId);
         if (targetElement) {
+            e.preventDefault();
             const headerOffset = 70;
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-  
+
             window.scrollTo({
                 top: offsetPosition,
                 behavior: "smooth"

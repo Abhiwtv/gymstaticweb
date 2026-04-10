@@ -331,3 +331,43 @@ a { text-decoration: none; color: inherit; }
     width: auto;
     display: block;
 }
+
+/* Make Map Responsive */
+.contact-map {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px; /* Adds a nice curve to the map */
+}
+
+.contact-map iframe {
+    width: 100% !important; /* Overrides the hardcoded HTML width */
+    height: 400px;
+    border: 0;
+}
+
+/* Mobile Optimization Tweaks */
+@media (max-width: 767px) {
+    .hero-title { 
+        font-size: 2.5rem; /* Scaled down from 4rem */
+        line-height: 1.2;
+    }
+    .hero-subtitle { 
+        font-size: 1rem; 
+    }
+    .section-title {
+        font-size: 2.2rem; /* Scaled down from 2.8rem */
+    }
+    .contact-item h3 {
+        font-size: 1.2rem;
+    }
+    .floating-wa {
+        bottom: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+    }
+    .floating-wa svg {
+        width: 24px;
+        height: 24px;
+    }
+}
